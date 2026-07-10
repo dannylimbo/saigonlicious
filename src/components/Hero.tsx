@@ -15,7 +15,7 @@ export function Hero() {
       <div className="hero-opener-overlay" aria-hidden />
 
       <div className="container-narrow relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
+        <div className="grid grid-cols-1 lg:landscape:grid-cols-2 lg:items-center">
           <div className="min-w-0 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
             <Reveal immediate delay={0}>
               <div className="mb-5 flex max-w-full flex-wrap items-center gap-2">
@@ -72,11 +72,11 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <div className="min-w-0 px-4 pb-10 sm:px-6 lg:px-8 lg:py-10">
+          <div className="hero-food-col hidden min-w-0 px-4 pb-10 sm:px-6 lg:px-8 lg:py-10">
             <PhotoFrame
               src="/images/hero-noodles.png"
               alt="Knusprige Bratnudeln mit Hähnchen bei Saigonlicious"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="50vw"
               aspect="4/3"
               priority
               revealDelay={180}
