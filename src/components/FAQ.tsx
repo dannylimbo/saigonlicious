@@ -4,18 +4,28 @@ import { useState } from "react";
 import { faqItems } from "@/lib/site-data";
 import { SectionHeading } from "@/components/ui/BrushLabel";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 import { cn } from "@/lib/utils";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-padding bg-charcoal-light" aria-labelledby="faq-heading">
+    <Section
+      tone="charcoal-light"
+      pattern="paper"
+      glow="headline"
+      divider
+      decor={[{ icon: "chili", className: "decor-pos-tr", mobile: false }]}
+      className="section-padding"
+      aria-labelledby="faq-heading"
+    >
       <div className="container-narrow max-w-3xl">
         <Reveal>
           <SectionHeading
             id="faq-heading"
             accent
+            brushStroke
             title="Häufige Fragen"
             subtitle="Bestellung, Lieferung und Standort – kurz beantwortet."
             align="center"
@@ -58,6 +68,6 @@ export function FAQ() {
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

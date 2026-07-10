@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { siteConfig } from "@/lib/site-data";
 import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 
 const actions = [
   {
@@ -72,12 +73,18 @@ const actions = [
 
 export function QuickActions() {
   return (
-    <section className="section-padding hidden border-b border-white/5 bg-charcoal-light sm:block" aria-label="Schnellaktionen">
+    <Section
+      tone="charcoal-light"
+      pattern="dots"
+      divider
+      className="section-padding hidden sm:block"
+      aria-label="Schnellaktionen"
+    >
       <div className="container-narrow">
         <div className="hidden grid-cols-5 gap-4 sm:grid">
           {actions.map((action, index) => {
             const className =
-              "card-dark group flex flex-col items-center gap-3 py-5 text-center hover:bg-charcoal-card/80";
+              "card-dark-glow group flex flex-col items-center gap-3 py-5 text-center hover:bg-charcoal-card/80";
             const content = (
               <>
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-saigon-green/15 text-saigon-green transition-colors group-hover:bg-saigon-green group-hover:text-charcoal">
@@ -119,6 +126,6 @@ export function QuickActions() {
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

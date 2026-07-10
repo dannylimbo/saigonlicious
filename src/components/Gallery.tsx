@@ -2,6 +2,7 @@ import { galleryImages } from "@/lib/site-data";
 import { SectionHeading } from "@/components/ui/BrushLabel";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 
 const objectPositions: Record<number, string> = {
   0: "center center",
@@ -15,8 +16,16 @@ const objectPositions: Record<number, string> = {
 
 export function Gallery() {
   return (
-    <section
-      className="section-padding overflow-hidden bg-charcoal-light"
+    <Section
+      tone="green-black"
+      pattern="diagonal"
+      glow="bottom"
+      divider
+      decor={[
+        { icon: "noodles", className: "decor-pos-tl", mobile: false },
+        { icon: "rice", className: "decor-pos-br" },
+      ]}
+      className="section-padding"
       aria-labelledby="gallery-heading"
     >
       <div className="container-narrow">
@@ -24,6 +33,7 @@ export function Gallery() {
           <SectionHeading
             id="gallery-heading"
             accent
+            brushStroke
             title="Ein Blick auf unsere Küche"
             subtitle="Frische Bowls, Currys, Nudeln und Takeaway – appetitlich zubereitet."
             align="center"
@@ -53,6 +63,6 @@ export function Gallery() {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

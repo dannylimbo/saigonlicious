@@ -2,6 +2,7 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/site-data";
 import { SectionHeading } from "@/components/ui/BrushLabel";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 
 type HighlightItem = {
   title: string;
@@ -10,6 +11,7 @@ type HighlightItem = {
   imageAlt: string;
   objectPosition?: string;
   variant?: "food" | "paypal";
+  badge?: string;
 };
 
 const highlights: HighlightItem[] = [
@@ -21,6 +23,7 @@ const highlights: HighlightItem[] = [
     imageAlt: "Takeaway-Gericht mit knuspriger Ente und Reis",
     objectPosition: "center center",
     variant: "food",
+    badge: "Lieferung",
   },
   {
     title: `Mittagstisch ab ${siteConfig.lunchPrice}`,
@@ -29,6 +32,7 @@ const highlights: HighlightItem[] = [
     imageAlt: "Mittagstisch und Speisekarte bei Saigonlicious",
     objectPosition: "center 30%",
     variant: "food",
+    badge: "Mittagstisch",
   },
   {
     title: "Asiatische & vietnamesische Gerichte",
@@ -58,7 +62,7 @@ function HighlightCard({
 
   return (
     <Reveal delay={delay} className="w-full min-w-0 self-start">
-      <article className="card-dark group w-full overflow-hidden p-0">
+      <article className="card-dark-glow group w-full overflow-hidden p-0">
         {isPayPal ? (
           <div className="flex items-start gap-4 p-4 sm:p-5">
             <div className="photo-frame shrink-0">
@@ -82,7 +86,7 @@ function HighlightCard({
         ) : (
           <>
             <div className="p-3 sm:p-4">
-              <div className="photo-frame w-full">
+              <div className="photo-frame w-full photo-frame-lift">
                 <div className="photo-frame-inner relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={item.image}
@@ -96,13 +100,18 @@ function HighlightCard({
               </div>
             </div>
             <div className="px-5 pb-5 pt-0">
+              {item.badge && (
+                <span className="stamp-badge mb-3 inline-block !rotate-0 scale-90 text-[10px]">
+                  {item.badge}
+                </span>
+              )}
               <h3 className="font-display text-xl tracking-wide text-white">
                 {item.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 {item.description}
               </p>
-              <div className="mt-4 h-0.5 w-10 bg-saigon-green transition-[width] duration-500 group-hover:w-full" />
+              <div className="brush-divider mt-4 !mx-0 !max-w-[4rem] opacity-60 transition-[max-width] duration-500 group-hover:!max-w-full" />
             </div>
           </>
         )}
@@ -113,8 +122,16 @@ function HighlightCard({
 
 export function Highlights() {
   return (
-    <section
-      className="section-padding overflow-hidden bg-charcoal"
+    <Section
+      tone="warm-black"
+      pattern="diagonal"
+      glow="center"
+      divider
+      decor={[
+        { icon: "noodles", className: "decor-pos-br" },
+        { icon: "rice", className: "decor-pos-tl", mobile: false },
+      ]}
+      className="section-padding"
       aria-labelledby="highlights-heading"
     >
       <div className="container-narrow">
@@ -122,6 +139,7 @@ export function Highlights() {
           <SectionHeading
             id="highlights-heading"
             accent
+            brushStroke
             title="Frisch. Schnell. Direkt zu dir."
             subtitle="Asian Takeaway & Lieferservice in Lüneburg."
           />
@@ -133,6 +151,6 @@ export function Highlights() {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

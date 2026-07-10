@@ -1,7 +1,8 @@
 import { siteConfig } from "@/lib/site-data";
-import { SectionHeading } from "@/components/ui/BrushLabel";
+import { BrushLabel, SectionHeading } from "@/components/ui/BrushLabel";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 
 const trustItems = [
   "Lokal in Lüneburg",
@@ -13,7 +14,18 @@ const trustItems = [
 
 export function About() {
   return (
-    <section className="section-padding bg-charcoal" aria-labelledby="about-heading">
+    <Section
+      tone="charcoal"
+      pattern="grain"
+      glow="top-left"
+      divider
+      decor={[
+        { icon: "orchid", className: "decor-pos-tr", mobile: false },
+        { icon: "cilantro", className: "decor-pos-bl" },
+      ]}
+      className="section-padding"
+      aria-labelledby="about-heading"
+    >
       <div className="container-narrow">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="lg:order-2">
@@ -24,12 +36,18 @@ export function About() {
               aspect="4/3"
               revealDelay={80}
               objectPosition="center center"
+              className="photo-frame-overlap"
             />
           </div>
 
           <div className="lg:order-1">
             <Reveal delay={80}>
-              <SectionHeading id="about-heading" accent title="Asian Takeaway in Lüneburg" />
+              <SectionHeading
+                id="about-heading"
+                accent
+                brushStroke
+                title="Asian Takeaway in Lüneburg"
+              />
             </Reveal>
             <Reveal delay={160}>
               <p className="prose-muted text-lg leading-relaxed text-muted">
@@ -43,22 +61,22 @@ export function About() {
             <Reveal delay={240}>
               <ul className="mt-8 flex flex-wrap gap-2">
                 {trustItems.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-saigon-green/30 bg-saigon-green/10 px-4 py-1.5 text-sm font-medium text-saigon-green-light"
-                  >
-                    {item}
+                  <li key={item}>
+                    <BrushLabel className="text-[10px] sm:text-xs">{item}</BrushLabel>
                   </li>
                 ))}
               </ul>
             </Reveal>
 
             <Reveal delay={300}>
-              <p className="mt-6 text-sm text-muted">{siteConfig.address.full}</p>
+              <div className="card-rice mt-8 inline-block px-5 py-4">
+                <p className="text-on-rice-muted text-sm">Standort</p>
+                <p className="mt-1 font-medium">{siteConfig.address.full}</p>
+              </div>
             </Reveal>
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

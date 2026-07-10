@@ -9,10 +9,12 @@ export function Hero() {
   return (
     <section
       id="start"
-      className="relative overflow-hidden bg-charcoal pt-24 lg:pt-28"
+      className="section-surface section-tone-warm-black relative overflow-hidden pt-24 lg:pt-28"
     >
       <div className="hero-opener-bg" aria-hidden />
       <div className="hero-opener-overlay" aria-hidden />
+      <div className="section-glow-top-left pointer-events-none absolute inset-0" aria-hidden />
+      <div className="section-pattern-grain pointer-events-none absolute inset-0" aria-hidden />
 
       <div className="container-narrow relative z-10">
         <div className="grid grid-cols-1 lg:landscape:grid-cols-2 lg:items-center">
@@ -20,21 +22,21 @@ export function Hero() {
             <Reveal immediate delay={0}>
               <div className="mb-5 flex max-w-full flex-wrap items-center gap-2">
                 <BrushLabel>Lieferung über Lieferando</BrushLabel>
-                <span className="rounded-full border border-saigon-green/40 bg-saigon-green/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-saigon-green-light sm:text-xs">
+                <BrushLabel variant="stamp" className="!rotate-0 scale-90 border-saigon-green/60 bg-charcoal/80 text-[10px] sm:text-xs">
                   Abholung möglich
-                </span>
+                </BrushLabel>
               </div>
             </Reveal>
 
             <Reveal immediate delay={120}>
-              <h1 className="display-heading max-w-xl font-display text-white">
+              <h1 className="display-heading brush-stroke max-w-xl font-display text-white">
                 Asiatisch genießen.
                 <span className="block text-saigon-green">Liefern oder abholen.</span>
               </h1>
             </Reveal>
 
             <Reveal immediate delay={220}>
-              <p className="prose-muted mt-6 max-w-lg text-base text-white/88 sm:text-lg">
+              <p className="prose-muted mt-8 max-w-lg text-base text-white/88 sm:text-lg">
                 Bestelle bequem über Lieferando – zur Lieferung oder Abholung.
                 Aromatische Currys, Reis- und Nudelgerichte, Desserts und Mittagstisch
                 ab {siteConfig.lunchPrice} in der Zeppelinstraße 1, Lüneburg.
@@ -72,7 +74,8 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <div className="hero-food-col hidden min-w-0 px-4 pb-10 sm:px-6 lg:px-8 lg:py-10">
+          <div className="hero-food-col relative hidden min-w-0 px-4 pb-10 sm:px-6 lg:px-8 lg:py-10">
+            <div className="hero-food-glow" aria-hidden />
             <PhotoFrame
               src="/images/hero-noodles.png"
               alt="Knusprige Bratnudeln mit Hähnchen bei Saigonlicious"
@@ -81,6 +84,7 @@ export function Hero() {
               priority
               revealDelay={180}
               objectPosition="center center"
+              className="photo-frame-lift relative z-10"
             />
           </div>
         </div>

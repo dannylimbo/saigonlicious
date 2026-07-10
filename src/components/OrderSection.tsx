@@ -1,11 +1,13 @@
 import { siteConfig } from "@/lib/site-data";
 import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
-import { SectionHeading } from "@/components/ui/BrushLabel";
+import { BrushLabel, SectionHeading } from "@/components/ui/BrushLabel";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 
 const orderOptions = [
   {
     title: "Liefern lassen",
+    badge: "Lieferung",
     description: "Bestelle deine Lieblingsgerichte bequem zu dir nach Hause.",
     button: "Lieferung starten",
     href: deliveryHref,
@@ -20,6 +22,7 @@ const orderOptions = [
   },
   {
     title: "Zur Abholung bestellen",
+    badge: "Abholung",
     description: "Bestelle online und hole dein Essen direkt bei Saigonlicious ab.",
     button: "Abholung starten",
     href: collectionHref,
@@ -36,16 +39,25 @@ const orderOptions = [
 
 export function OrderSection() {
   return (
-    <section
+    <Section
       id="bestellen"
-      className="section-padding bg-charcoal"
+      tone="green-black"
+      pattern="paper"
+      glow="headline"
+      divider
+      decor={[
+        { icon: "lime", className: "decor-pos-tr", mobile: false },
+        { icon: "chili", className: "decor-pos-bl", mobile: false },
+      ]}
+      className="section-padding"
       aria-labelledby="order-heading"
     >
       <div className="container-narrow">
         <Reveal>
           <SectionHeading
             id="order-heading"
-            accent
+            label="Bestellen"
+            brushStroke
             title="Bestellen bei Saigonlicious"
             subtitle="Liefern lassen oder abholen – bequem über Lieferando."
           />
@@ -54,22 +66,25 @@ export function OrderSection() {
         <div className="grid gap-6 md:grid-cols-2">
           {orderOptions.map((option, index) => (
             <Reveal key={option.title} delay={index * 80}>
-              <article className="card-dark flex h-full flex-col">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-saigon-green/15 text-saigon-green">
-                  <svg
-                    className="h-7 w-7"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden
-                  >
-                    {option.icon}
-                  </svg>
+              <article className="card-rice flex h-full flex-col">
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-saigon-green/20 text-saigon-green-dark">
+                    <svg
+                      className="h-7 w-7"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden
+                    >
+                      {option.icon}
+                    </svg>
+                  </div>
+                  <BrushLabel variant="stamp" className="!rotate-0 scale-90 text-[10px]">
+                    {option.badge}
+                  </BrushLabel>
                 </div>
-                <h3 className="font-display text-2xl tracking-wide text-white">
-                  {option.title}
-                </h3>
-                <p className="mt-3 flex-1 text-muted">{option.description}</p>
+                <h3 className="font-display text-2xl tracking-wide">{option.title}</h3>
+                <p className="text-on-rice-muted mt-3 flex-1">{option.description}</p>
                 <a
                   href={option.href}
                   {...externalLinkProps}
@@ -83,8 +98,9 @@ export function OrderSection() {
         </div>
 
         <Reveal delay={160}>
-          <div className="mt-8 flex flex-col gap-4 rounded-xl border border-white/10 bg-charcoal-card p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="card-dark-glow mt-8 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
+              <BrushLabel className="mb-2 text-[10px]">Direkt anrufen</BrushLabel>
               <p className="text-sm text-muted">Telefonische Bestellung</p>
               <a
                 href={siteConfig.phoneHref}
@@ -100,6 +116,6 @@ export function OrderSection() {
           </div>
         </Reveal>
       </div>
-    </section>
+    </Section>
   );
 }

@@ -1,13 +1,22 @@
 import { siteConfig } from "@/lib/site-data";
 import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
-import { SectionHeading } from "@/components/ui/BrushLabel";
+import { BrushLabel, SectionHeading } from "@/components/ui/BrushLabel";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 
 export function MapSection() {
   return (
-    <section
+    <Section
       id="standort"
-      className="section-padding bg-charcoal"
+      tone="charcoal"
+      pattern="grain"
+      glow="top-right"
+      divider
+      decor={[
+        { icon: "curry-bowl", className: "decor-pos-tl", mobile: false },
+        { icon: "peanut", className: "decor-pos-br" },
+      ]}
+      className="section-padding"
       aria-labelledby="location-heading"
     >
       <div className="container-narrow">
@@ -15,6 +24,7 @@ export function MapSection() {
           <SectionHeading
             id="location-heading"
             accent
+            brushStroke
             title="Finde uns in Lüneburg"
             subtitle="Zeppelinstraße 1 – Abholung und Besuch vor Ort."
           />
@@ -22,7 +32,7 @@ export function MapSection() {
 
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal delay={80}>
-            <div className="card-dark flex flex-col">
+            <div className="card-dark-glow flex flex-col">
               <h3 className="font-script text-3xl text-white">{siteConfig.name}</h3>
               <p className="mt-1 text-sm text-muted">{siteConfig.tagline}</p>
 
@@ -32,6 +42,7 @@ export function MapSection() {
               </address>
 
               <p className="mt-6">
+                <BrushLabel className="mb-2 text-[10px]">Kontakt</BrushLabel>
                 <span className="text-sm text-muted">Telefon</span>
                 <br />
                 <a
@@ -65,19 +76,21 @@ export function MapSection() {
           </Reveal>
 
           <Reveal delay={140}>
-            <div className="overflow-hidden rounded-xl border border-white/10">
-              <iframe
-                title="Saigonlicious Standort auf Google Maps"
-                src={siteConfig.mapsEmbed}
-                className="h-80 w-full min-h-[320px] lg:h-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+            <div className="photo-frame overflow-hidden">
+              <div className="photo-frame-inner overflow-hidden">
+                <iframe
+                  title="Saigonlicious Standort auf Google Maps"
+                  src={siteConfig.mapsEmbed}
+                  className="h-80 w-full min-h-[320px] lg:h-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </Reveal>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

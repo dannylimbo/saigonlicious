@@ -11,15 +11,35 @@ import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { BrushLabel, SectionHeading } from "@/components/ui/BrushLabel";
 import { MenuAccordion } from "@/components/ui/MenuAccordion";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 
 const badgeStyles: Record<MenuBadge, string> = {
-  Beliebt: "bg-saigon-green text-charcoal",
+  Beliebt: "",
   Curry: "bg-orchid/30 text-white",
   Bowl: "bg-saigon-green/20 text-saigon-green-light",
   Mittag: "border border-saigon-green/50 text-saigon-green",
   Vorspeise: "bg-white/10 text-white",
   Nudeln: "bg-saigon-green/15 text-saigon-green-light",
 };
+
+const brushBadges: MenuBadge[] = ["Beliebt", "Mittag"];
+
+function MenuBadgePill({ badge }: { badge: MenuBadge }) {
+  if (brushBadges.includes(badge)) {
+    return (
+      <BrushLabel variant="stamp" className="!rotate-0 scale-[0.85] text-[9px]">
+        {badge}
+      </BrushLabel>
+    );
+  }
+  return (
+    <span
+      className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${badgeStyles[badge]}`}
+    >
+      {badge}
+    </span>
+  );
+}
 
 function MenuItemRow({ item }: { item: MenuItem }) {
   return (
@@ -63,25 +83,23 @@ function PopularDishCard({
 }) {
   return (
     <Reveal delay={index * 60} className="h-full">
-      <article className="card-dark flex h-full flex-col overflow-hidden p-0">
+      <article className="card-dark-glow flex h-full flex-col overflow-hidden p-0">
         <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-charcoal-light">
           <Image
             src={dish.image}
             alt={dish.imageAlt}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 hover:scale-[1.03]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent"
+            aria-hidden
           />
         </div>
         <div className="flex flex-1 flex-col p-4 sm:p-5">
           <div className="mb-2 flex flex-wrap items-center gap-2">
-            {dish.badge && (
-              <span
-                className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${badgeStyles[dish.badge]}`}
-              >
-                {dish.badge}
-              </span>
-            )}
+            {dish.badge && <MenuBadgePill badge={dish.badge} />}
           </div>
           <h3 className="font-display text-lg leading-tight tracking-wide text-white sm:text-xl">
             {dish.name}
@@ -124,15 +142,15 @@ function MenuCategoryBlock({
           {itemList}
         </MenuAccordion>
 
-        <div className="card-dark hidden overflow-hidden p-0 lg:block">
-        <div className="border-b border-white/5 px-5 py-4">
-          <BrushLabel>{category.title}</BrushLabel>
-          {category.subtitle && (
-            <p className="mt-2 text-sm text-saigon-green-light">{category.subtitle}</p>
-          )}
+        <div className="card-dark-glow hidden overflow-hidden p-0 lg:block">
+          <div className="border-b border-white/5 px-5 py-4">
+            <BrushLabel>{category.title}</BrushLabel>
+            {category.subtitle && (
+              <p className="mt-2 text-sm text-saigon-green-light">{category.subtitle}</p>
+            )}
+          </div>
+          {itemList}
         </div>
-        {itemList}
-      </div>
       </div>
     </Reveal>
   );
@@ -140,9 +158,18 @@ function MenuCategoryBlock({
 
 export function MenuPreview() {
   return (
-    <section
+    <Section
       id="speisekarte"
-      className="section-padding bg-charcoal-light"
+      tone="charcoal-light"
+      pattern="paper"
+      glow="top-right"
+      divider
+      decor={[
+        { icon: "cilantro", className: "decor-pos-tl", mobile: false },
+        { icon: "curry-bowl", className: "decor-pos-br" },
+        { icon: "peanut", className: "decor-pos-mid", mobile: false },
+      ]}
+      className="section-padding"
       aria-labelledby="menu-heading"
     >
       <div className="container-narrow">
@@ -150,8 +177,12 @@ export function MenuPreview() {
           <SectionHeading
             id="menu-heading"
             label="Speisekarte"
+            brushStroke
             title="Aromatisch. Frisch. Vielfältig."
             subtitle="Von Suppen und Bowls über Currys bis zu Bratnudeln – wie in unserem Laden."
+            foodCrop={{
+              src: "/images/popular-red-curry.png",
+            }}
           />
         </Reveal>
 
@@ -191,6 +222,6 @@ export function MenuPreview() {
           </div>
         </Reveal>
       </div>
-    </section>
+    </Section>
   );
 }
