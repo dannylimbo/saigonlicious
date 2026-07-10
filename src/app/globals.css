@@ -19,6 +19,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  font-size: 90%;
 }
 
 body {
@@ -53,11 +54,12 @@ h3 {
 }
 
 .section-padding {
-  @apply px-4 py-[clamp(3.5rem,8vw,6rem)] sm:px-6 lg:px-8;
+  @apply px-4 py-[clamp(3.15rem,7.2vw,5.4rem)] sm:px-6 lg:px-8;
 }
 
 .container-narrow {
-  @apply mx-auto w-full max-w-6xl min-w-0;
+  @apply mx-auto w-full min-w-0;
+  max-width: 64.8rem;
 }
 
 .brush-label {
@@ -103,15 +105,40 @@ h3 {
 }
 
 .display-heading {
-  font-size: clamp(2rem, 5vw, 4.25rem);
+  font-size: clamp(1.8rem, 4.5vw, 3.825rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
 }
 
 .section-heading {
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.925rem);
   line-height: 1.05;
   letter-spacing: 0.02em;
+}
+
+.hero-opener-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/hero-opener-bg.png");
+  background-size: cover;
+  background-position: center 30%;
+}
+
+.hero-opener-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10, 10, 10, 0.94) 0%,
+    rgba(10, 10, 10, 0.88) 45%,
+    rgba(10, 10, 10, 0.72) 100%
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-opener {
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+  }
 }
 
 /* Adriano-style scroll reveal */

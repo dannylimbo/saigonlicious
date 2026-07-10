@@ -97,10 +97,6 @@ export function OpeningHours() {
           <HoursTable title="Lieferzeiten" rows={deliveryHours} />
         </div>
         </Reveal>
-
-        <p className="mt-6 text-center text-xs text-muted/70">
-          Öffnungszeiten und Lieferzeiten vor Veröffentlichung prüfen.
-        </p>
       </div>
     </section>
   );

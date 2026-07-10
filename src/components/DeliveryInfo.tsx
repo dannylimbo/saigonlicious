@@ -32,6 +32,7 @@ export function DeliveryInfo() {
       <div className="container-narrow">
         <Reveal>
           <SectionHeading
+            id="delivery-heading"
             accent
             title="So bestellst du bei uns"
             subtitle="In drei einfachen Schritten zu deinem Lieblingsgericht."

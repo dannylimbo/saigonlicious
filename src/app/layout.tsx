@@ -24,6 +24,7 @@ const dancing = Dancing_Script({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: "Saigonlicious Lüneburg – Asia-Imbiss & Lieferservice",
   description: siteConfig.description,
   keywords: [
@@ -43,6 +44,14 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "de_DE",
     type: "website",
+    images: [
+      {
+        url: "/images/hero-noodles.png",
+        width: 1200,
+        height: 900,
+        alt: "Asiatische Gerichte bei Saigonlicious Lüneburg",
+      },
+    ],
   },
 };
 

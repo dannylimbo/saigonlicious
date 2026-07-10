@@ -13,6 +13,7 @@ export function MapSection() {
       <div className="container-narrow">
         <Reveal>
           <SectionHeading
+            id="location-heading"
             accent
             title="Finde uns in Lüneburg"
             subtitle="Zeppelinstraße 1 – Abholung und Besuch vor Ort."

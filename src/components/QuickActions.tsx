@@ -72,7 +72,7 @@ const actions = [
 
 export function QuickActions() {
   return (
-    <section className="section-padding border-b border-white/5 bg-charcoal-light" aria-label="Schnellaktionen">
+    <section className="section-padding hidden border-b border-white/5 bg-charcoal-light sm:block" aria-label="Schnellaktionen">
       <div className="container-narrow">
         <div className="hidden grid-cols-5 gap-4 sm:grid">
           {actions.map((action, index) => {

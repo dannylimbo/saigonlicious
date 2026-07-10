@@ -15,7 +15,8 @@ export function LocalBusinessJsonLd() {
       postalCode: "21337",
       addressCountry: "DE",
     },
-    servesCuisine: ["Asian", "Indian"],
+    servesCuisine: ["Asian", "Vietnamese"],
+    image: `${siteConfig.url}/images/hero-noodles.png`,
     priceRange: "€€",
     openingHoursSpecification: [
       {

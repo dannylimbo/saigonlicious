@@ -36,7 +36,7 @@ export function Header() {
           : "bg-charcoal/80 backdrop-blur-sm"
       )}
     >
-      <div className="mx-auto flex w-full max-w-6xl min-w-0 items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 lg:px-8">
+      <div className="container-narrow flex items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 lg:px-8">
         <Link href="#start" className="group min-w-0 shrink">
           <span className="block truncate font-script text-xl text-white transition-colors group-hover:text-saigon-green sm:text-2xl xl:text-3xl">
             {siteConfig.name}

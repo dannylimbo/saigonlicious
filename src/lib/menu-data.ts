@@ -10,8 +10,8 @@ export type PopularDish = {
   description: string;
   price: string;
   badge?: MenuBadge;
-  image?: string;
-  imageAlt?: string;
+  image: string;
+  imageAlt: string;
 };
 
 export type MenuItem = {
@@ -65,7 +65,7 @@ export const popularDishes: PopularDish[] = [
     description: "Klassische Bratnudeln mit knuspriger Ente.",
     price: "12,90 €",
     badge: "Nudeln",
-    image: "/images/popular/duck-noodles.jpg",
+    image: "/images/popular-duck-noodles.png",
     imageAlt: "Bratnudeln mit knuspriger Entenbrust",
   },
   {
@@ -73,7 +73,7 @@ export const popularDishes: PopularDish[] = [
     description: "Leicht scharf, mit Gemüse und Jasminreis.",
     price: "ab 10,90 €",
     badge: "Curry",
-    image: "/images/popular/red-curry.jpg",
+    image: "/images/popular-red-curry.png",
     imageAlt: "Rotes Curry mit Kokosmilch und Reis",
   },
   {
@@ -89,7 +89,7 @@ export const popularDishes: PopularDish[] = [
     description: "Mit Erdnüssen, rotem Curry und Kokosmilch.",
     price: "ab 10,90 €",
     badge: "Curry",
-    image: "/images/popular/peanut-curry.jpg",
+    image: "/images/popular-peanut-curry.png",
     imageAlt: "Erdnuss-Curry mit Reis",
   },
   {
@@ -97,7 +97,7 @@ export const popularDishes: PopularDish[] = [
     description: "Mit Ananas, Gemüse und Jasminreis.",
     price: "ab 10,90 €",
     badge: "Curry",
-    image: "/images/popular/sweet-sour.jpg",
+    image: "/images/popular-sweet-sour.png",
     imageAlt: "Süß-Sauer-Gericht mit Gemüse",
   },
   {
@@ -105,7 +105,7 @@ export const popularDishes: PopularDish[] = [
     description: "Knusprige Ente, Mango, Salat, Erdnüsse und Glasnudeln.",
     price: "12,90 €",
     badge: "Bowl",
-    image: "/images/takeaway-duck-rice.png",
+    image: "/images/bowl-duck.png",
     imageAlt: "Saigon Bowl mit knuspriger Ente",
   },
   {
@@ -113,7 +113,7 @@ export const popularDishes: PopularDish[] = [
     description: "Vietnamesische Reisnudeln mit Salat, Mango und Kräutern.",
     price: "ab 10,90 €",
     badge: "Bowl",
-    image: "/images/popular/nam-bo-bowl.jpg",
+    image: "/images/popular-nam-bo-bowl.png",
     imageAlt: "Frische Bowl mit Reisnudeln und Gemüse",
   },
   {

@@ -9,6 +9,7 @@ import {
 } from "@/lib/menu-data";
 import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { BrushLabel, SectionHeading } from "@/components/ui/BrushLabel";
+import { MenuAccordion } from "@/components/ui/MenuAccordion";
 import { Reveal } from "@/components/ui/Reveal";
 
 const badgeStyles: Record<MenuBadge, string> = {
@@ -61,19 +62,17 @@ function PopularDishCard({
   index: number;
 }) {
   return (
-    <Reveal delay={index * 60}>
+    <Reveal delay={index * 60} className="h-full">
       <article className="card-dark flex h-full flex-col overflow-hidden p-0">
-        {dish.image && (
-          <div className="relative aspect-[16/10] w-full overflow-hidden">
-            <Image
-              src={dish.image}
-              alt={dish.imageAlt ?? dish.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-          </div>
-        )}
+        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-charcoal-light">
+          <Image
+            src={dish.image}
+            alt={dish.imageAlt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        </div>
         <div className="flex flex-1 flex-col p-4 sm:p-5">
           <div className="mb-2 flex flex-wrap items-center gap-2">
             {dish.badge && (
@@ -84,7 +83,7 @@ function PopularDishCard({
               </span>
             )}
           </div>
-          <h3 className="font-display text-lg tracking-wide text-white sm:text-xl">
+          <h3 className="font-display text-lg leading-tight tracking-wide text-white sm:text-xl">
             {dish.name}
           </h3>
           <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
@@ -116,32 +115,16 @@ function MenuCategoryBlock({
   return (
     <Reveal delay={index * 50}>
       <div id={sectionId}>
-      <details
-        className="group card-dark overflow-hidden p-0 lg:hidden"
-        open={index < 2}
-      >
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 sm:px-5 [&::-webkit-details-marker]:hidden">
-          <div className="min-w-0">
-            <BrushLabel className="text-xs sm:text-sm">{category.title}</BrushLabel>
-            {category.subtitle && (
-              <p className="mt-2 text-xs text-saigon-green-light sm:text-sm">
-                {category.subtitle}
-              </p>
-            )}
-          </div>
-          <span
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 text-saigon-green transition-transform group-open:rotate-180"
-            aria-hidden
-          >
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </span>
-        </summary>
-        {itemList}
-      </details>
+        <MenuAccordion
+          categoryId={category.id}
+          title={category.title}
+          subtitle={category.subtitle}
+          defaultOpen={index < 2 || category.id === "mittagstisch"}
+        >
+          {itemList}
+        </MenuAccordion>
 
-      <div className="card-dark hidden overflow-hidden p-0 lg:block">
+        <div className="card-dark hidden overflow-hidden p-0 lg:block">
         <div className="border-b border-white/5 px-5 py-4">
           <BrushLabel>{category.title}</BrushLabel>
           {category.subtitle && (

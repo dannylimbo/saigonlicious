@@ -29,13 +29,10 @@ export function About() {
 
           <div className="lg:order-1">
             <Reveal delay={80}>
-              <SectionHeading accent title="Asian Takeaway in Lüneburg" />
+              <SectionHeading id="about-heading" accent title="Asian Takeaway in Lüneburg" />
             </Reveal>
             <Reveal delay={160}>
-              <p
-                id="about-heading"
-                className="prose-muted text-lg leading-relaxed text-muted"
-              >
+              <p className="prose-muted text-lg leading-relaxed text-muted">
                 Saigonlicious ist ein Asia-Imbiss und Lieferservice in Lüneburg.
                 In der Zeppelinstraße 1 werden frische asiatische Gerichte, Currys,
                 Reis- und Nudelgerichte sowie Desserts zubereitet – ideal zum
