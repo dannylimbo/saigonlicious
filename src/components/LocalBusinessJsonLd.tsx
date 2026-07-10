@@ -1,0 +1,37 @@
+import { siteConfig } from "@/lib/site-data";
+
+export function LocalBusinessJsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    name: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    telephone: siteConfig.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
+      addressLocality: "Lüneburg",
+      postalCode: "21337",
+      addressCountry: "DE",
+    },
+    servesCuisine: ["Asian", "Indian"],
+    priceRange: "€€",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "11:00",
+        closes: "20:00",
+      },
+    ],
+    sameAs: [siteConfig.facebook],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
