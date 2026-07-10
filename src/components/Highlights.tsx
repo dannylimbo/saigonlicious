@@ -25,17 +25,17 @@ const highlights: HighlightItem[] = [
   {
     title: `Mittagstisch ab ${siteConfig.lunchPrice}`,
     description: "Schnell, lecker – perfekt für die Mittagspause.",
-    image: "/images/green-curry.png",
-    imageAlt: "Frisches Curry zum Mittagstisch",
-    objectPosition: "center 45%",
+    image: "/images/kitchen-menu.png",
+    imageAlt: "Mittagstisch und Speisekarte bei Saigonlicious",
+    objectPosition: "center 30%",
     variant: "food",
   },
   {
-    title: "Asiatische & indische Gerichte",
-    description: "Von Curry bis Reisgericht – aromatisch und frisch.",
-    image: "/images/bowl-duck.png",
-    imageAlt: "Nudelgericht mit knuspriger Ente",
-    objectPosition: "center 35%",
+    title: "Asiatische & vietnamesische Gerichte",
+    description: "Von Curry und Bowls bis Bratnudeln – aromatisch und frisch.",
+    image: "/images/spring-rolls.png",
+    imageAlt: "Vorspeisen bei Saigonlicious",
+    objectPosition: "center center",
     variant: "food",
   },
   {
@@ -57,7 +57,7 @@ function HighlightCard({
   const isPayPal = item.variant === "paypal";
 
   return (
-    <Reveal delay={delay} className="w-full self-start">
+    <Reveal delay={delay} className="w-full min-w-0 self-start">
       <article className="card-dark group w-full overflow-hidden p-0">
         {isPayPal ? (
           <div className="flex items-start gap-4 p-4 sm:p-5">
@@ -114,7 +114,7 @@ function HighlightCard({
 export function Highlights() {
   return (
     <section
-      className="section-padding bg-charcoal"
+      className="section-padding overflow-hidden bg-charcoal"
       aria-labelledby="highlights-heading"
     >
       <div className="container-narrow">
@@ -127,7 +127,7 @@ export function Highlights() {
           />
         </Reveal>
 
-        <div className="grid grid-cols-1 items-start gap-5 sm:grid-cols-2">
+        <div className="grid min-w-0 grid-cols-1 items-start gap-5 sm:grid-cols-2">
           {highlights.map((item, index) => (
             <HighlightCard key={item.title} item={item} delay={index * 100} />
           ))}

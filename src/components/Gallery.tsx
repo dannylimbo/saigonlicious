@@ -5,19 +5,18 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const objectPositions: Record<number, string> = {
   0: "center center",
-  1: "center 55%",
-  2: "center center",
+  1: "center center",
+  2: "center 25%",
   3: "center center",
-  4: "center 35%",
+  4: "center center",
   5: "center center",
-  6: "center 40%",
-  7: "center center",
+  6: "center center",
 };
 
 export function Gallery() {
   return (
     <section
-      className="section-padding bg-charcoal-light"
+      className="section-padding overflow-hidden bg-charcoal-light"
       aria-labelledby="gallery-heading"
     >
       <div className="container-narrow">

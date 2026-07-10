@@ -51,101 +51,6 @@ export const deliveryHours = [
   { days: "Samstag – Sonntag", hours: "Ruhetag" },
 ] as const;
 
-export type MenuItem = {
-  name: string;
-  description?: string;
-  price: string;
-};
-
-export type MenuCategory = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  items: MenuItem[];
-};
-
-export const menuCategories: MenuCategory[] = [
-  {
-    id: "indisch",
-    title: "Indische Gerichte",
-    subtitle: "mit Duft-Reis",
-    items: [
-      { name: "Chicken Madras", price: "10,90 €" },
-      { name: "Chicken Bombay", price: "10,90 €" },
-      { name: "Beef Tandoori Curry", price: "12,90 €" },
-      { name: "Beef Vindaloo", price: "12,90 €" },
-      { name: "Beef Coconut Madras", price: "12,90 €" },
-      { name: "Beef Tikka Masala", price: "12,90 €" },
-    ],
-  },
-  {
-    id: "dessert",
-    title: "Dessert",
-    items: [
-      {
-        name: "Gebackene Banane mit Honig",
-        description: "Süß und knusprig",
-        price: "4,00 €",
-      },
-      {
-        name: "Sesambällchen mit Karamellsauce",
-        description: "Mit Sesam und Karamell",
-        price: "4,00 €",
-      },
-    ],
-  },
-  {
-    id: "extras",
-    title: "Extras",
-    items: [
-      { name: "Extra Hähnchen", price: "3,50 €" },
-      { name: "Extra Rind", price: "4,00 €" },
-      { name: "Extra Ente", price: "4,50 €" },
-    ],
-  },
-  {
-    id: "saucen",
-    title: "Saucen",
-    items: [
-      { name: "Erdnuss-Kokos-Sauce", price: "1,50 €" },
-      { name: "Grüne Curry-Kokos-Sauce", price: "1,50 €" },
-      { name: "Rote Curry-Sauce", price: "1,50 €" },
-      { name: "Süß-Sauer-Sauce", price: "1,00 €" },
-    ],
-  },
-  {
-    id: "getraenke",
-    title: "Softdrinks & Bier",
-    items: [
-      { name: "Coca-Cola / Fanta / Sprite (0,33 l)", price: "2,50 €" },
-      { name: "Mineralwasser (0,33 l)", price: "2,00 €" },
-      { name: "Mineralwasser (1,0 l)", price: "3,50 €" },
-      { name: "Warsteiner (0,5 l)", price: "3,00 €" },
-    ],
-  },
-  {
-    id: "kaffee",
-    title: "Kaffee & Tee",
-    subtitle: "Kein Lieferdienst",
-    items: [
-      { name: "Kaffee", price: "2,00 €" },
-      { name: "Tee", price: "2,00 €" },
-    ],
-  },
-  {
-    id: "mittagstisch",
-    title: "Mittagstisch",
-    subtitle: "ab 8,50 €",
-    items: [
-      {
-        name: "Tagesgericht",
-        description: "Frisch zubereitet – perfekt für die Mittagspause",
-        price: "ab 8,50 €",
-      },
-    ],
-  },
-];
-
 export const faqItems = [
   {
     question: "Wie kann ich bei Saigonlicious bestellen?",
@@ -184,41 +89,38 @@ export const faqItems = [
 
 export const galleryImages = [
   {
-    src: "/images/hero-noodles.png",
-    alt: "Knusprige Bratnudeln mit Hähnchen bei Saigonlicious",
+    src: "/images/takeaway-duck-rice.png",
+    alt: "Knusprige Ente mit Reis zum Mitnehmen",
     index: 0,
   },
   {
-    src: "/images/green-curry.png",
-    alt: "Grünes Curry im Takeaway-Becher",
+    src: "/images/spring-rolls.png",
+    alt: "Frische Vorspeisen bei Saigonlicious",
     index: 1,
   },
   {
-    src: "/images/takeaway-duck-rice.png",
-    alt: "Knusprige Ente mit Reis zum Mitnehmen",
+    src: "/images/kitchen-menu.png",
+    alt: "Speisekarte und Küche bei Saigonlicious",
     index: 2,
   },
   {
-    src: "/images/bowl-duck.png",
-    alt: "Nudelgericht mit knuspriger Ente",
+    src: "/images/storefront.png",
+    alt: "Saigonlicious Laden in der Zeppelinstraße",
     index: 3,
   },
   {
-    src: "/images/storefront.png",
-    alt: "Saigonlicious Laden in der Zeppelinstraße, Lüneburg",
+    src: "/images/exterior-front.png",
+    alt: "Außenansicht Saigonlicious Lüneburg",
     index: 4,
-  },
-  {
-    src: "/images/outdoor-meal.png",
-    alt: "Saigonlicious Außenansicht in Lüneburg",
-    index: 5,
   },
   {
     src: "/images/interior-counter.png",
     alt: "Theke und Servicebereich bei Saigonlicious",
+    index: 5,
+  },
+  {
+    src: "/images/fresh-vegetables.png",
+    alt: "Frisch zubereitetes asiatisches Gemüse",
     index: 6,
   },
 ] as const;
-
-export const allergenNote =
-  "Allergene und Zusatzstoffe: A Gluten, C Ei, G Milch, H Nüsse, L Schwefeldioxid, M Senf, N Sesam, O Schwefel, 1 mit Farbstoff, 2 mit Konservierungsstoff, 4 mit Geschmacksverstärker, 5 geschwefelt, 11 enthält Phenylalaninquelle, 13 gewachst.";

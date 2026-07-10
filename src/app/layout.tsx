@@ -56,7 +56,7 @@ export default function RootLayout({
       lang="de"
       className={`${archivo.variable} ${bebas.variable} ${dancing.variable}`}
     >
-      <body className="antialiased">
+      <body className="min-w-0 overflow-x-clip antialiased">
         <LocalBusinessJsonLd />
         {children}
       </body>

@@ -9,7 +9,7 @@ export function LunchSpecial() {
       className="section-padding relative overflow-hidden bg-charcoal"
       aria-labelledby="lunch-heading"
     >
-      <div className="absolute -right-20 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-saigon-green/5 blur-3xl" />
+      <div className="absolute right-0 top-1/2 h-64 w-64 max-w-[50vw] -translate-y-1/2 translate-x-1/4 rounded-full bg-saigon-green/5 blur-3xl" />
 
       <div className="container-narrow relative">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">

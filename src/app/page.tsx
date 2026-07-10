@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pb-16 sm:pb-0">
+      <main className="min-w-0 overflow-x-clip pb-16 sm:pb-0">
         <Hero />
         <QuickActions />
         <OrderSection />

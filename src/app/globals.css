@@ -18,12 +18,7 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  overflow-x: clip;
 }
 
 body {
@@ -31,6 +26,14 @@ body {
   color: #ffffff;
   font-family: var(--font-body), system-ui, sans-serif;
   line-height: 1.6;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 h1,
@@ -54,11 +57,11 @@ h3 {
 }
 
 .container-narrow {
-  @apply mx-auto max-w-6xl;
+  @apply mx-auto w-full max-w-6xl min-w-0;
 }
 
 .brush-label {
-  @apply relative inline-block px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-white;
+  @apply relative inline-block max-w-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white sm:px-4 sm:text-sm;
 }
 
 .brush-label::before {
@@ -80,23 +83,27 @@ h3 {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-saigon-green px-5 py-3 text-sm font-semibold text-charcoal transition-colors hover:bg-saigon-green-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saigon-green active:scale-[0.98];
+  @apply inline-flex max-w-full shrink-0 items-center justify-center gap-2 rounded-lg bg-saigon-green px-4 py-2.5 text-sm font-semibold text-charcoal transition-colors hover:bg-saigon-green-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saigon-green active:scale-[0.98] sm:px-5 sm:py-3;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-saigon-green/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saigon-green active:scale-[0.98];
+  @apply inline-flex max-w-full shrink-0 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-saigon-green/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saigon-green active:scale-[0.98] sm:px-5 sm:py-3;
+}
+
+.btn-compact {
+  @apply px-3 py-2 text-xs sm:text-sm;
 }
 
 .card-dark {
-  @apply rounded-xl border border-white/10 bg-charcoal-card p-6 transition-colors hover:border-saigon-green/25;
+  @apply min-w-0 rounded-xl border border-white/10 bg-charcoal-card p-6 transition-colors hover:border-saigon-green/25;
 }
 
 .stamp-badge {
-  @apply inline-block rotate-[-6deg] rounded-lg border-2 border-saigon-green bg-charcoal px-4 py-2 text-center font-bold uppercase tracking-wide text-saigon-green;
+  @apply inline-block max-w-full rotate-[-4deg] rounded-lg border-2 border-saigon-green bg-charcoal px-3 py-1.5 text-center text-xs font-bold uppercase tracking-wide text-saigon-green sm:px-4 sm:py-2 sm:text-sm;
 }
 
 .display-heading {
-  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 5vw, 4.25rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
 }
@@ -151,8 +158,9 @@ h3 {
 .gallery-collage {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: minmax(160px, auto);
+  grid-auto-rows: minmax(140px, auto);
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .gallery-collage > [class*="gallery-item"] {
