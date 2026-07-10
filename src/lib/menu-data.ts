@@ -65,12 +65,16 @@ export const popularDishes: PopularDish[] = [
     description: "Klassische Bratnudeln mit knuspriger Ente.",
     price: "12,90 €",
     badge: "Nudeln",
+    image: "/images/popular/duck-noodles.jpg",
+    imageAlt: "Bratnudeln mit knuspriger Entenbrust",
   },
   {
     name: "Rote Curry-Kokos-Sauce",
     description: "Leicht scharf, mit Gemüse und Jasminreis.",
     price: "ab 10,90 €",
     badge: "Curry",
+    image: "/images/popular/red-curry.jpg",
+    imageAlt: "Rotes Curry mit Kokosmilch und Reis",
   },
   {
     name: "Grüne Curry-Kokos-Sauce",
@@ -85,12 +89,16 @@ export const popularDishes: PopularDish[] = [
     description: "Mit Erdnüssen, rotem Curry und Kokosmilch.",
     price: "ab 10,90 €",
     badge: "Curry",
+    image: "/images/popular/peanut-curry.jpg",
+    imageAlt: "Erdnuss-Curry mit Reis",
   },
   {
     name: "Süß-Sauer-Sauce",
     description: "Mit Ananas, Gemüse und Jasminreis.",
     price: "ab 10,90 €",
     badge: "Curry",
+    image: "/images/popular/sweet-sour.jpg",
+    imageAlt: "Süß-Sauer-Gericht mit Gemüse",
   },
   {
     name: "Saigon Bowl",
@@ -105,6 +113,8 @@ export const popularDishes: PopularDish[] = [
     description: "Vietnamesische Reisnudeln mit Salat, Mango und Kräutern.",
     price: "ab 10,90 €",
     badge: "Bowl",
+    image: "/images/popular/nam-bo-bowl.jpg",
+    imageAlt: "Frische Bowl mit Reisnudeln und Gemüse",
   },
   {
     name: "Hanoi Frühlingsrolle",

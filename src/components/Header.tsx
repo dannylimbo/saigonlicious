@@ -65,20 +65,17 @@ export function Header() {
           <a
             href={deliveryHref}
             {...externalLinkProps}
-            className="btn-primary btn-compact hidden xl:inline-flex"
+            className="btn-primary btn-compact hidden sm:inline-flex"
           >
             Liefern
           </a>
           <a
             href={collectionHref}
             {...externalLinkProps}
-            className="btn-primary btn-compact hidden xl:inline-flex"
+            className="btn-primary btn-compact hidden sm:inline-flex"
           >
             Abholung
           </a>
-          <Link href="#bestellen" className="btn-primary btn-compact hidden sm:inline-flex xl:hidden">
-            Bestellen
-          </Link>
 
           <button
             type="button"

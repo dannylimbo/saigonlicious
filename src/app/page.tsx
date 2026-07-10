@@ -7,7 +7,6 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Highlights } from "@/components/Highlights";
-import { LunchSpecial } from "@/components/LunchSpecial";
 import { MapSection } from "@/components/MapSection";
 import { MenuPreview } from "@/components/MenuPreview";
 import { MobileQuickActions } from "@/components/MobileQuickActions";
@@ -25,7 +24,6 @@ export default function Home() {
         <OrderSection />
         <Highlights />
         <MenuPreview />
-        <LunchSpecial />
         <DeliveryInfo />
         <About />
         <Gallery />
