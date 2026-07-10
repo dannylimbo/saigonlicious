@@ -11,12 +11,12 @@ export function Hero() {
       id="start"
       className="relative overflow-hidden bg-charcoal pt-24 lg:pt-28"
     >
-      <div className="container-narrow">
+      <div className="hero-opener-bg" aria-hidden />
+      <div className="hero-opener-overlay" aria-hidden />
+
+      <div className="container-narrow relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
-          <div className="hero-opener relative min-w-0 overflow-hidden px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-            <div className="hero-opener-bg" aria-hidden />
-            <div className="hero-opener-overlay" aria-hidden />
-            <div className="relative z-10">
+          <div className="min-w-0 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
             <Reveal immediate delay={0}>
               <div className="mb-5 flex max-w-full flex-wrap items-center gap-2">
                 <BrushLabel>Lieferung über Lieferando</BrushLabel>
@@ -70,7 +70,6 @@ export function Hero() {
                 </a>
               </div>
             </Reveal>
-          </div>
           </div>
 
           <div className="min-w-0 px-4 pb-10 sm:px-6 lg:px-8 lg:py-10">
