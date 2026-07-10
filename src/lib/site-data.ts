@@ -1,11 +1,21 @@
+export const lieferandoDeliveryUrl =
+  "https://www.lieferando.de/speisekarte/saigonlicious-luneburg?shipping=delivery&utm_campaign=foodorder&utm_medium=organic&utm_source=google";
+
+export const lieferandoCollectionUrl =
+  "https://www.lieferando.de/speisekarte/saigonlicious-luneburg?shipping=collection&utm_campaign=foodorder&utm_medium=organic&utm_source=google";
+
 export const siteConfig = {
   name: "Saigonlicious",
   tagline: "Asia-Imbiss & Lieferservice",
   description:
-    "Saigonlicious in Lüneburg: Asiatische Gerichte, Currys, Mittagstisch und Lieferservice. Jetzt Speisekarte ansehen, anrufen oder bestellen.",
+    "Saigonlicious in Lüneburg: Asiatische Gerichte, Currys, Mittagstisch und Lieferservice. Jetzt Lieferung oder Abholung über Lieferando bestellen.",
   url: "https://saigonlicious.de",
   phone: "04131 7218220",
   phoneHref: "tel:+4941317218220",
+  lieferando: {
+    delivery: lieferandoDeliveryUrl,
+    collection: lieferandoCollectionUrl,
+  },
   address: {
     street: "Zeppelinstraße 1",
     city: "21337 Lüneburg",
@@ -22,6 +32,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { href: "#start", label: "Start" },
+  { href: "#bestellen", label: "Bestellen" },
   { href: "#speisekarte", label: "Speisekarte" },
   { href: "#mittagstisch", label: "Mittagstisch" },
   { href: "#lieferung", label: "Lieferung" },
@@ -137,18 +148,29 @@ export const menuCategories: MenuCategory[] = [
 
 export const faqItems = [
   {
+    question: "Wie kann ich bei Saigonlicious bestellen?",
+    answer:
+      "Du kannst online über Lieferando zur Lieferung oder Abholung bestellen. Alternativ erreichst du Saigonlicious telefonisch unter 04131 7218220.",
+  },
+  {
+    question: "Kann ich Essen liefern lassen?",
+    answer:
+      "Ja, über den Button „Liefern lassen“ gelangst du direkt zur Lieferando-Bestellung.",
+  },
+  {
+    question: "Kann ich Essen abholen?",
+    answer:
+      "Ja, über den Button „Zur Abholung bestellen“ kannst du deine Bestellung zur Abholung aufgeben.",
+  },
+  {
+    question: "Muss ich über Lieferando bestellen?",
+    answer:
+      "Die Online-Bestellung läuft über Lieferando. Telefonisch kannst du Saigonlicious weiterhin direkt erreichen.",
+  },
+  {
     question: "Wo befindet sich Saigonlicious?",
     answer:
       "Saigonlicious befindet sich in der Zeppelinstraße 1, 21337 Lüneburg.",
-  },
-  {
-    question: "Bietet Saigonlicious Lieferung an?",
-    answer:
-      "Ja, Saigonlicious bietet einen Lieferservice an. Die Lieferzeiten sollten vor der Bestellung geprüft werden.",
-  },
-  {
-    question: "Kann man auch abholen?",
-    answer: "Ja, Bestellungen können auch abgeholt werden.",
   },
   {
     question: "Gibt es Mittagstisch?",
@@ -157,11 +179,6 @@ export const faqItems = [
   {
     question: "Kann man mit PayPal bezahlen?",
     answer: "Laut Speisekarte ist PayPal-Zahlung möglich.",
-  },
-  {
-    question: "Wie kann ich bestellen?",
-    answer:
-      "Du kannst telefonisch unter 04131 7218220 bestellen oder den Bestellbutton auf der Website nutzen.",
   },
 ];
 
@@ -182,29 +199,24 @@ export const galleryImages = [
     index: 2,
   },
   {
-    src: "/images/spring-rolls.png",
-    alt: "Frühlingsrollen auf grünem Blatt-Teller",
+    src: "/images/bowl-duck.png",
+    alt: "Nudelgericht mit knuspriger Ente",
     index: 3,
   },
   {
-    src: "/images/bowl-duck.png",
-    alt: "Nudelgericht mit knuspriger Ente",
+    src: "/images/storefront.png",
+    alt: "Saigonlicious Laden in der Zeppelinstraße, Lüneburg",
     index: 4,
   },
   {
-    src: "/images/fresh-vegetables.png",
-    alt: "Frisch zubereitetes asiatisches Gemüse",
-    index: 5,
-  },
-  {
     src: "/images/outdoor-meal.png",
-    alt: "Asiatisches Gericht auf der Terrasse",
-    index: 6,
+    alt: "Saigonlicious Außenansicht in Lüneburg",
+    index: 5,
   },
   {
     src: "/images/interior-counter.png",
     alt: "Theke und Servicebereich bei Saigonlicious",
-    index: 7,
+    index: 6,
   },
 ] as const;
 

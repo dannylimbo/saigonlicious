@@ -12,6 +12,7 @@ import { MapSection } from "@/components/MapSection";
 import { MenuPreview } from "@/components/MenuPreview";
 import { MobileQuickActions } from "@/components/MobileQuickActions";
 import { OpeningHours } from "@/components/OpeningHours";
+import { OrderSection } from "@/components/OrderSection";
 import { QuickActions } from "@/components/QuickActions";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <main className="pb-16 sm:pb-0">
         <Hero />
         <QuickActions />
+        <OrderSection />
         <Highlights />
         <MenuPreview />
         <LunchSpecial />

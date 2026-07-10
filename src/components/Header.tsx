@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navLinks, siteConfig } from "@/lib/site-data";
-import { orderHref } from "@/lib/utils";
+import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -54,11 +54,28 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 sm:flex">
-          <a href={orderHref} className="btn-primary text-xs sm:text-sm">
-            Jetzt bestellen
+        <div className="hidden items-center gap-2 sm:flex lg:gap-3">
+          <a
+            href={deliveryHref}
+            {...externalLinkProps}
+            className="btn-primary hidden text-xs lg:inline-flex sm:text-sm"
+          >
+            Liefern lassen
           </a>
-          <a href={siteConfig.phoneHref} className="btn-secondary hidden text-xs md:inline-flex sm:text-sm">
+          <a
+            href={collectionHref}
+            {...externalLinkProps}
+            className="btn-primary hidden text-xs lg:inline-flex sm:text-sm"
+          >
+            Abholung
+          </a>
+          <Link href="#bestellen" className="btn-primary text-xs lg:hidden sm:text-sm">
+            Bestellen
+          </Link>
+          <a
+            href={siteConfig.phoneHref}
+            className="btn-secondary hidden text-xs md:inline-flex sm:text-sm"
+          >
             Anrufen
           </a>
         </div>
@@ -94,10 +111,27 @@ export function Header() {
               </Link>
             ))}
             <div className="mt-4 flex flex-col gap-3">
-              <a href={orderHref} className="btn-primary w-full" onClick={() => setMenuOpen(false)}>
-                Jetzt bestellen
+              <a
+                href={deliveryHref}
+                {...externalLinkProps}
+                className="btn-primary w-full"
+                onClick={() => setMenuOpen(false)}
+              >
+                Liefern lassen
               </a>
-              <a href={siteConfig.phoneHref} className="btn-secondary w-full" onClick={() => setMenuOpen(false)}>
+              <a
+                href={collectionHref}
+                {...externalLinkProps}
+                className="btn-primary w-full"
+                onClick={() => setMenuOpen(false)}
+              >
+                Zur Abholung bestellen
+              </a>
+              <a
+                href={siteConfig.phoneHref}
+                className="btn-secondary w-full"
+                onClick={() => setMenuOpen(false)}
+              >
                 Anrufen
               </a>
             </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-data";
-import { orderHref } from "@/lib/utils";
+import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function ContactCTA() {
@@ -14,32 +14,34 @@ export function ContactCTA() {
 
       <div className="container-narrow relative text-center">
         <Reveal>
-        <h2
-          id="cta-heading"
-          className="section-heading mx-auto max-w-3xl font-display tracking-wide text-white"
-        >
-          Lust auf asiatisches Essen?
-        </h2>
+          <h2
+            id="cta-heading"
+            className="section-heading mx-auto max-w-3xl font-display tracking-wide text-white"
+          >
+            Lust auf asiatisches Essen?
+          </h2>
         </Reveal>
         <Reveal delay={100}>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
-          Bestelle bei Saigonlicious und genieße frische asiatische Gerichte,
-          Curry, Reis, Nudeln und Desserts – geliefert oder zum Mitnehmen.
-        </p>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
+            Bestelle Saigonlicious bequem zur Lieferung oder Abholung – oder ruf direkt an.
+          </p>
         </Reveal>
 
         <Reveal delay={180}>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a href={orderHref} className="btn-primary">
-            Jetzt bestellen
-          </a>
-          <a href={siteConfig.phoneHref} className="btn-secondary">
-            Anrufen
-          </a>
-          <Link href="#speisekarte" className="btn-secondary">
-            Speisekarte ansehen
-          </Link>
-        </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a href={deliveryHref} {...externalLinkProps} className="btn-primary">
+              Liefern lassen
+            </a>
+            <a href={collectionHref} {...externalLinkProps} className="btn-primary">
+              Zur Abholung bestellen
+            </a>
+            <a href={siteConfig.phoneHref} className="btn-secondary">
+              Anrufen
+            </a>
+            <Link href="#speisekarte" className="btn-secondary">
+              Speisekarte ansehen
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { allergenNote, menuCategories } from "@/lib/site-data";
-import { orderHref } from "@/lib/utils";
+import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { BrushLabel, SectionHeading } from "@/components/ui/BrushLabel";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -64,8 +64,11 @@ export function MenuPreview() {
           <Link href="#speisekarte" className="btn-secondary">
             Komplette Speisekarte ansehen
           </Link>
-          <a href={orderHref} className="btn-primary">
-            Jetzt bestellen
+          <a href={deliveryHref} {...externalLinkProps} className="btn-primary">
+            Liefern lassen
+          </a>
+          <a href={collectionHref} {...externalLinkProps} className="btn-primary">
+            Zur Abholung bestellen
           </a>
         </div>
         </Reveal>

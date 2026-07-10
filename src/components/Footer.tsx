@@ -5,6 +5,7 @@ import {
   openingHours,
   siteConfig,
 } from "@/lib/site-data";
+import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 
 export function Footer() {
   return (
@@ -25,6 +26,34 @@ export function Footer() {
             >
               {siteConfig.phone}
             </a>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <a
+                  href={deliveryHref}
+                  {...externalLinkProps}
+                  className="text-sm text-muted transition-colors hover:text-white"
+                >
+                  Lieferung bestellen
+                </a>
+              </li>
+              <li>
+                <a
+                  href={collectionHref}
+                  {...externalLinkProps}
+                  className="text-sm text-muted transition-colors hover:text-white"
+                >
+                  Abholung bestellen
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.phoneHref}
+                  className="text-sm text-muted transition-colors hover:text-white"
+                >
+                  Telefonisch bestellen
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div>

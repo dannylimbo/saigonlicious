@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { siteConfig } from "@/lib/site-data";
-import { orderHref } from "@/lib/utils";
+import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
 
 const actions = [
@@ -18,8 +18,22 @@ const actions = [
     ),
   },
   {
-    label: "Bestellen",
-    href: orderHref,
+    label: "Liefern lassen",
+    href: deliveryHref,
+    external: true,
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10m10 0h4m-4 0a2 2 0 01-2 2H5a2 2 0 01-2-2m10 0V9a2 2 0 012-2h2.5M13 16h4m0 0v2a1 1 0 01-1 1h-1m-4-3h4"
+      />
+    ),
+  },
+  {
+    label: "Abholung",
+    href: collectionHref,
+    external: true,
     icon: (
       <path
         strokeLinecap="round"
@@ -60,7 +74,7 @@ export function QuickActions() {
   return (
     <section className="section-padding border-b border-white/5 bg-charcoal-light" aria-label="Schnellaktionen">
       <div className="container-narrow">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+        <div className="hidden grid-cols-5 gap-4 sm:grid">
           {actions.map((action, index) => {
             const className =
               "card-dark group flex flex-col items-center gap-3 py-5 text-center hover:bg-charcoal-card/80";
@@ -83,12 +97,7 @@ export function QuickActions() {
 
             if ("external" in action && action.external) {
               return wrapped(
-                <a
-                  href={action.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={className}
-                >
+                <a href={action.href} {...externalLinkProps} className={className}>
                   {content}
                 </a>
               );

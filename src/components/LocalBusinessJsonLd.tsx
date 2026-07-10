@@ -26,6 +26,32 @@ export function LocalBusinessJsonLd() {
       },
     ],
     sameAs: [siteConfig.facebook],
+    potentialAction: [
+      {
+        "@type": "OrderAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: siteConfig.lieferando.delivery,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+        name: "Lieferung bestellen",
+      },
+      {
+        "@type": "OrderAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: siteConfig.lieferando.collection,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+        name: "Abholung bestellen",
+      },
+    ],
   };
 
   return (

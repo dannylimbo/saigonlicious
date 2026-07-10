@@ -5,10 +5,10 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const trustItems = [
   "Lokal in Lüneburg",
-  "Lieferservice",
+  "Lieferando Bestellung",
+  "Abholung möglich",
   "Mittagstisch",
   "PayPal möglich",
-  "Frisch zubereitet",
 ] as const;
 
 export function About() {

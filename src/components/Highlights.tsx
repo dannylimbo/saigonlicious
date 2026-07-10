@@ -16,7 +16,7 @@ const highlights: HighlightItem[] = [
   {
     title: "Lieferservice in Lüneburg",
     description:
-      "Bestelle deine Lieblingsgerichte nach Hause oder hol sie an der Theke ab.",
+      "Bestelle über Lieferando zur Lieferung oder hol dein Essen direkt bei uns ab.",
     image: "/images/takeaway-duck-rice.png",
     imageAlt: "Takeaway-Gericht mit knuspriger Ente und Reis",
     objectPosition: "center center",
