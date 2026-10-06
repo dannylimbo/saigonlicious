@@ -54,22 +54,32 @@ export function MapSection() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
+                <a href={siteConfig.phoneHref} className="btn-primary">
+                  Jetzt telefonisch bestellen
+                </a>
                 <a
                   href={siteConfig.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary"
+                  className="btn-secondary"
                 >
                   Route öffnen
                 </a>
-                <a href={siteConfig.phoneHref} className="btn-secondary">
-                  Anrufen
+              </div>
+              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                <a
+                  href={deliveryHref}
+                  {...externalLinkProps}
+                  className="text-muted underline-offset-4 hover:text-saigon-green hover:underline"
+                >
+                  Alternativ Lieferando – Lieferung
                 </a>
-                <a href={deliveryHref} {...externalLinkProps} className="btn-secondary">
-                  Liefern lassen
-                </a>
-                <a href={collectionHref} {...externalLinkProps} className="btn-secondary">
-                  Abholung
+                <a
+                  href={collectionHref}
+                  {...externalLinkProps}
+                  className="text-muted underline-offset-4 hover:text-saigon-green hover:underline"
+                >
+                  Alternativ Lieferando – Abholung
                 </a>
               </div>
             </div>

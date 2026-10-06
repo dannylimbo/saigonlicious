@@ -7,7 +7,7 @@ export function LocalBusinessJsonLd() {
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    telephone: siteConfig.phone,
+    telephone: siteConfig.phoneHref.replace("tel:", ""),
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -32,13 +32,25 @@ export function LocalBusinessJsonLd() {
         "@type": "OrderAction",
         target: {
           "@type": "EntryPoint",
+          urlTemplate: siteConfig.phoneHref,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+        name: "Jetzt telefonisch bestellen",
+      },
+      {
+        "@type": "OrderAction",
+        target: {
+          "@type": "EntryPoint",
           urlTemplate: siteConfig.lieferando.delivery,
           actionPlatform: [
             "http://schema.org/DesktopWebPlatform",
             "http://schema.org/MobileWebPlatform",
           ],
         },
-        name: "Lieferung bestellen",
+        name: "Alternativ über Lieferando bestellen",
       },
       {
         "@type": "OrderAction",
@@ -50,7 +62,7 @@ export function LocalBusinessJsonLd() {
             "http://schema.org/MobileWebPlatform",
           ],
         },
-        name: "Abholung bestellen",
+        name: "Alternativ Lieferando – Abholung",
       },
     ],
   };

@@ -29,11 +29,19 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
+                  href={siteConfig.phoneHref}
+                  className="text-sm text-muted transition-colors hover:text-white"
+                >
+                  Telefonisch bestellen
+                </a>
+              </li>
+              <li>
+                <a
                   href={deliveryHref}
                   {...externalLinkProps}
                   className="text-sm text-muted transition-colors hover:text-white"
                 >
-                  Lieferung bestellen
+                  Alternativ Lieferando – Lieferung
                 </a>
               </li>
               <li>
@@ -42,15 +50,7 @@ export function Footer() {
                   {...externalLinkProps}
                   className="text-sm text-muted transition-colors hover:text-white"
                 >
-                  Abholung bestellen
-                </a>
-              </li>
-              <li>
-                <a
-                  href={siteConfig.phoneHref}
-                  className="text-sm text-muted transition-colors hover:text-white"
-                >
-                  Telefonisch bestellen
+                  Alternativ Lieferando – Abholung
                 </a>
               </li>
             </ul>
@@ -79,6 +79,11 @@ export function Footer() {
               <li>
                 <Link href="/datenschutz" className="text-sm text-muted transition-colors hover:text-white">
                   Datenschutz
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin" className="text-sm text-muted/70 transition-colors hover:text-saigon-green">
+                  Admin
                 </Link>
               </li>
             </ul>

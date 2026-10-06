@@ -1,14 +1,14 @@
 export const lieferandoDeliveryUrl =
-  "https://www.lieferando.de/speisekarte/saigonlicious-luneburg?shipping=delivery&utm_campaign=foodorder&utm_medium=organic&utm_source=google";
+  "https://www.lieferando.de/speisekarte/saigonlicious-luneburg?utm_campaign=foodorder&utm_medium=organic&utm_source=google&shipping=delivery";
 
 export const lieferandoCollectionUrl =
-  "https://www.lieferando.de/speisekarte/saigonlicious-luneburg?shipping=collection&utm_campaign=foodorder&utm_medium=organic&utm_source=google";
+  "https://www.lieferando.de/speisekarte/saigonlicious-luneburg?utm_campaign=foodorder&utm_medium=organic&utm_source=google&shipping=collection";
 
 export const siteConfig = {
   name: "Saigonlicious",
   tagline: "Asia-Imbiss & Lieferservice",
   description:
-    "Saigonlicious in Lüneburg: Asiatische Gerichte, Currys, Mittagstisch und Lieferservice. Jetzt Lieferung oder Abholung über Lieferando bestellen.",
+    "Saigonlicious in Lüneburg: Asiatische Gerichte und Currys. Am besten direkt telefonisch bestellen unter 04131 7218220 – alternativ über Lieferando.",
   url: "https://saigonlicious.de",
   phone: "04131 7218220",
   phoneHref: "tel:+4941317218220",
@@ -28,6 +28,7 @@ export const siteConfig = {
   mapsEmbed:
     "https://maps.google.com/maps?q=Zeppelinstra%C3%9Fe+1,+21337+L%C3%BCneburg&hl=de&z=16&output=embed",
   lunchPrice: "8,50 €",
+  lunchOnlyOnSiteLabel: "Mittagstisch – nur vor Ort",
 };
 
 export const navLinks = [
@@ -55,22 +56,22 @@ export const faqItems = [
   {
     question: "Wie kann ich bei Saigonlicious bestellen?",
     answer:
-      "Du kannst online über Lieferando zur Lieferung oder Abholung bestellen. Alternativ erreichst du Saigonlicious telefonisch unter 04131 7218220.",
+      "Bestelle am besten direkt telefonisch unter 04131 7218220. Alternativ kannst du über Lieferando bestellen.",
   },
   {
     question: "Kann ich Essen liefern lassen?",
     answer:
-      "Ja, über den Button „Liefern lassen“ gelangst du direkt zur Lieferando-Bestellung.",
+      "Ja. Am einfachsten rufst du uns an. Alternativ kannst du über Lieferando eine Lieferung bestellen.",
   },
   {
     question: "Kann ich Essen abholen?",
     answer:
-      "Ja, über den Button „Zur Abholung bestellen“ kannst du deine Bestellung zur Abholung aufgeben.",
+      "Ja. Am einfachsten bestellst du telefonisch und holst dein Essen ab. Alternativ geht Abholung auch über Lieferando.",
   },
   {
     question: "Muss ich über Lieferando bestellen?",
     answer:
-      "Die Online-Bestellung läuft über Lieferando. Telefonisch kannst du Saigonlicious weiterhin direkt erreichen.",
+      "Nein. Die telefonische Bestellung bei uns ist der Hauptweg. Lieferando ist eine zusätzliche Alternative.",
   },
   {
     question: "Wo befindet sich Saigonlicious?",
@@ -79,7 +80,8 @@ export const faqItems = [
   },
   {
     question: "Gibt es Mittagstisch?",
-    answer: "Ja, laut Speisekarte gibt es Mittagstisch ab 8,50 €.",
+    answer:
+      "Ja, es gibt Mittagstisch – nur vor Ort. Unser Mittagsangebot gilt ausschließlich zum Verzehr im Restaurant. Keine telefonische Bestellung, keine Abholung und keine Lieferung.",
   },
   {
     question: "Kann man mit PayPal bezahlen?",

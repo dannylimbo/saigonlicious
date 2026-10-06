@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-data";
-import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
+import { deliveryHref, externalLinkProps } from "@/lib/utils";
 import { BrushLabel } from "@/components/ui/BrushLabel";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -26,7 +26,7 @@ export function ContactCTA() {
       <div className="container-narrow relative text-center">
         <Reveal>
           <div className="mb-4 flex justify-center">
-            <BrushLabel>Jetzt bestellen</BrushLabel>
+            <BrushLabel>Jetzt telefonisch bestellen</BrushLabel>
           </div>
           <h2
             id="cta-heading"
@@ -37,24 +37,22 @@ export function ContactCTA() {
         </Reveal>
         <Reveal delay={100}>
           <p className="mx-auto mt-8 max-w-2xl text-lg text-muted">
-            Bestelle Saigonlicious bequem zur Lieferung oder Abholung – oder ruf direkt an.
+            Ruf uns an unter {siteConfig.phone} – oder bestelle alternativ über
+            Lieferando.
           </p>
         </Reveal>
 
         <Reveal delay={180}>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href={deliveryHref} {...externalLinkProps} className="btn-primary">
-              Liefern lassen
-            </a>
-            <a href={collectionHref} {...externalLinkProps} className="btn-primary">
-              Zur Abholung bestellen
-            </a>
-            <a href={siteConfig.phoneHref} className="btn-secondary">
-              Anrufen
+            <a href={siteConfig.phoneHref} className="btn-primary">
+              Jetzt telefonisch bestellen
             </a>
             <Link href="#speisekarte" className="btn-secondary">
               Speisekarte ansehen
             </Link>
+            <a href={deliveryHref} {...externalLinkProps} className="btn-secondary">
+              Alternativ über Lieferando bestellen
+            </a>
           </div>
         </Reveal>
 

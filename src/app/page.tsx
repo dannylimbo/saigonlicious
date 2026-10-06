@@ -13,17 +13,23 @@ import { MobileQuickActions } from "@/components/MobileQuickActions";
 import { OpeningHours } from "@/components/OpeningHours";
 import { OrderSection } from "@/components/OrderSection";
 import { QuickActions } from "@/components/QuickActions";
+import { getPublicMenu, lunchPriceLabel } from "@/lib/menu/public";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const menu = await getPublicMenu();
+  const lunchLabel = lunchPriceLabel(menu).replace(/^ab\s+/i, "");
+
   return (
     <>
       <Header />
-      <main className="min-w-0 overflow-x-clip pb-16 sm:pb-0">
-        <Hero />
+      <main className="min-w-0 overflow-x-clip pb-20 sm:pb-0">
+        <Hero lunchPriceLabel={lunchLabel} />
         <QuickActions />
         <OrderSection />
-        <Highlights />
-        <MenuPreview />
+        <Highlights lunchPriceLabel={lunchLabel} />
+        <MenuPreview menu={menu} />
         <DeliveryInfo />
         <About />
         <Gallery />

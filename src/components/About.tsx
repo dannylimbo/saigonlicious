@@ -6,9 +6,9 @@ import { Section } from "@/components/ui/Section";
 
 const trustItems = [
   "Lokal in Lüneburg",
-  "Lieferando Bestellung",
-  "Abholung möglich",
-  "Mittagstisch",
+  "Telefonisch bestellen",
+  "Alternativ Lieferando",
+  "Mittagstisch – nur vor Ort",
   "PayPal möglich",
 ] as const;
 
@@ -53,8 +53,9 @@ export function About() {
               <p className="prose-muted text-lg leading-relaxed text-muted">
                 Saigonlicious ist ein Asia-Imbiss und Lieferservice in Lüneburg.
                 In der Zeppelinstraße 1 werden frische asiatische Gerichte, Currys,
-                Reis- und Nudelgerichte sowie Desserts zubereitet – ideal zum
-                Mitnehmen, Liefernlassen oder für die schnelle Mittagspause.
+                Reis- und Nudelgerichte sowie Desserts zubereitet. Am besten
+                telefonisch bestellen – alternativ über Lieferando. Der
+                Mittagstisch gilt ausschließlich zum Verzehr vor Ort.
               </p>
             </Reveal>
 

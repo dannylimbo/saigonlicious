@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navLinks, siteConfig } from "@/lib/site-data";
-import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
+import { deliveryHref, externalLinkProps } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
 const compactNav = navLinks.filter((link) =>
@@ -63,18 +63,17 @@ export function Header() {
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <a
-            href={deliveryHref}
-            {...externalLinkProps}
+            href={siteConfig.phoneHref}
             className="btn-primary btn-compact hidden sm:inline-flex"
           >
-            Liefern
+            Jetzt telefonisch bestellen
           </a>
           <a
-            href={collectionHref}
+            href={deliveryHref}
             {...externalLinkProps}
-            className="btn-primary btn-compact hidden sm:inline-flex"
+            className="hidden text-sm text-muted underline-offset-4 hover:text-saigon-green hover:underline lg:inline-flex"
           >
-            Abholung
+            Alternativ Lieferando
           </a>
 
           <button
@@ -110,28 +109,27 @@ export function Header() {
             ))}
             <div className="mt-4 flex flex-col gap-3">
               <a
+                href={siteConfig.phoneHref}
+                className="btn-primary w-full"
+                onClick={() => setMenuOpen(false)}
+              >
+                Jetzt telefonisch bestellen
+              </a>
+              <a
                 href={deliveryHref}
                 {...externalLinkProps}
-                className="btn-primary w-full"
-                onClick={() => setMenuOpen(false)}
-              >
-                Liefern lassen
-              </a>
-              <a
-                href={collectionHref}
-                {...externalLinkProps}
-                className="btn-primary w-full"
-                onClick={() => setMenuOpen(false)}
-              >
-                Zur Abholung bestellen
-              </a>
-              <a
-                href={siteConfig.phoneHref}
                 className="btn-secondary w-full"
                 onClick={() => setMenuOpen(false)}
               >
-                Anrufen
+                Alternativ über Lieferando bestellen
               </a>
+              <Link
+                href="#speisekarte"
+                className="btn-secondary w-full text-center"
+                onClick={() => setMenuOpen(false)}
+              >
+                Speisekarte ansehen
+              </Link>
             </div>
           </nav>
         </div>

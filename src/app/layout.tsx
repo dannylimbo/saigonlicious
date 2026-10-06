@@ -25,20 +25,19 @@ const dancing = Dancing_Script({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Saigonlicious Lüneburg – Asia-Imbiss & Lieferservice",
+  title: "Saigonlicious Lüneburg – Asiatisch genießen, telefonisch bestellen",
   description: siteConfig.description,
   keywords: [
     "Saigonlicious Lüneburg",
     "Asia Imbiss Lüneburg",
-    "Asia Lieferservice Lüneburg",
     "Asiatisch bestellen Lüneburg",
-    "Saigonlicious Lieferservice",
-    "Mittagstisch Lüneburg",
+    "telefonisch bestellen Lüneburg",
+    "Mittagstisch Lüneburg vor Ort",
     "Zeppelinstraße Lüneburg",
     "Asiatische Küche Lüneburg",
   ],
   openGraph: {
-    title: "Saigonlicious Lüneburg – Asia-Imbiss & Lieferservice",
+    title: "Saigonlicious Lüneburg – Asiatisch genießen, telefonisch bestellen",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,

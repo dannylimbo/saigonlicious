@@ -14,42 +14,45 @@ type HighlightItem = {
   badge?: string;
 };
 
-const highlights: HighlightItem[] = [
-  {
-    title: "Lieferservice in Lüneburg",
-    description:
-      "Bestelle über Lieferando zur Lieferung oder hol dein Essen direkt bei uns ab.",
-    image: "/images/takeaway-duck-rice.png",
-    imageAlt: "Takeaway-Gericht mit knuspriger Ente und Reis",
-    objectPosition: "center center",
-    variant: "food",
-    badge: "Lieferung",
-  },
-  {
-    title: `Mittagstisch ab ${siteConfig.lunchPrice}`,
-    description: "Schnell, lecker – perfekt für die Mittagspause.",
-    image: "/images/kitchen-menu.png",
-    imageAlt: "Mittagstisch und Speisekarte bei Saigonlicious",
-    objectPosition: "center 30%",
-    variant: "food",
-    badge: "Mittagstisch",
-  },
-  {
-    title: "Asiatische & vietnamesische Gerichte",
-    description: "Von Curry und Bowls bis Bratnudeln – aromatisch und frisch.",
-    image: "/images/spring-rolls.png",
-    imageAlt: "Vorspeisen bei Saigonlicious",
-    objectPosition: "center center",
-    variant: "food",
-  },
-  {
-    title: "PayPal-Zahlung möglich",
-    description: "Scannen, zahlen, fertig – direkt an der Theke.",
-    image: "/images/paypal-qr.png",
-    imageAlt: "PayPal QR-Code bei Saigonlicious",
-    variant: "paypal",
-  },
-];
+function buildHighlights(lunchPriceLabel: string): HighlightItem[] {
+  return [
+    {
+      title: "Telefonisch bestellen",
+      description:
+        "Lieblingsgericht aussuchen und direkt bei uns anrufen – der einfachste Weg.",
+      image: "/images/takeaway-duck-rice.png",
+      imageAlt: "Takeaway-Gericht mit knuspriger Ente und Reis",
+      objectPosition: "center center",
+      variant: "food",
+      badge: "Hauptweg",
+    },
+    {
+      title: `${siteConfig.lunchOnlyOnSiteLabel} ab ${lunchPriceLabel}`,
+      description:
+        "Nur zum Verzehr im Restaurant – keine telefonische Bestellung, keine Abholung und keine Lieferung.",
+      image: "/images/kitchen-menu.png",
+      imageAlt: "Mittagstisch und Speisekarte bei Saigonlicious",
+      objectPosition: "center 30%",
+      variant: "food",
+      badge: "Nur vor Ort",
+    },
+    {
+      title: "Asiatische & vietnamesische Gerichte",
+      description: "Von Curry und Bowls bis Bratnudeln – aromatisch und frisch.",
+      image: "/images/spring-rolls.png",
+      imageAlt: "Vorspeisen bei Saigonlicious",
+      objectPosition: "center center",
+      variant: "food",
+    },
+    {
+      title: "PayPal-Zahlung möglich",
+      description: "Scannen, zahlen, fertig – direkt an der Theke.",
+      image: "/images/paypal-qr.png",
+      imageAlt: "PayPal QR-Code bei Saigonlicious",
+      variant: "paypal",
+    },
+  ];
+}
 
 function HighlightCard({
   item,
@@ -86,7 +89,7 @@ function HighlightCard({
         ) : (
           <>
             <div className="p-3 sm:p-4">
-              <div className="photo-frame w-full photo-frame-lift">
+              <div className="photo-frame photo-frame-lift w-full">
                 <div className="photo-frame-inner relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={item.image}
@@ -120,7 +123,9 @@ function HighlightCard({
   );
 }
 
-export function Highlights() {
+export function Highlights({ lunchPriceLabel }: { lunchPriceLabel: string }) {
+  const highlights = buildHighlights(lunchPriceLabel);
+
   return (
     <Section
       tone="warm-black"

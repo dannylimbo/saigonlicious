@@ -5,7 +5,11 @@ import { BrushLabel } from "@/components/ui/BrushLabel";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function Hero() {
+type HeroProps = {
+  lunchPriceLabel: string;
+};
+
+export function Hero({ lunchPriceLabel }: HeroProps) {
   return (
     <section
       id="start"
@@ -21,9 +25,12 @@ export function Hero() {
           <div className="min-w-0 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
             <Reveal immediate delay={0}>
               <div className="mb-5 flex max-w-full flex-wrap items-center gap-2">
-                <BrushLabel>Lieferung über Lieferando</BrushLabel>
-                <BrushLabel variant="stamp" className="!rotate-0 scale-90 border-saigon-green/60 bg-charcoal/80 text-[10px] sm:text-xs">
-                  Abholung möglich
+                <BrushLabel>Telefonisch bestellen</BrushLabel>
+                <BrushLabel
+                  variant="stamp"
+                  className="!rotate-0 scale-90 border-saigon-green/60 bg-charcoal/80 text-[10px] sm:text-xs"
+                >
+                  {siteConfig.lunchOnlyOnSiteLabel}
                 </BrushLabel>
               </div>
             </Reveal>
@@ -31,42 +38,59 @@ export function Hero() {
             <Reveal immediate delay={120}>
               <h1 className="display-heading brush-stroke max-w-xl font-display text-white">
                 Asiatisch genießen.
-                <span className="block text-saigon-green">Liefern oder abholen.</span>
+                <span className="block text-saigon-green">Direkt anrufen.</span>
               </h1>
             </Reveal>
 
             <Reveal immediate delay={220}>
               <p className="prose-muted mt-8 max-w-lg text-base text-white/88 sm:text-lg">
-                Bestelle bequem über Lieferando – zur Lieferung oder Abholung.
-                Aromatische Currys, Reis- und Nudelgerichte, Desserts und Mittagstisch
-                ab {siteConfig.lunchPrice} in der Zeppelinstraße 1, Lüneburg.
+                Lieblingsgericht aussuchen und direkt bei uns anrufen. Aromatische
+                Currys, Reis- und Nudelgerichte – frisch in der Zeppelinstraße 1,
+                Lüneburg. {siteConfig.lunchOnlyOnSiteLabel} ab {lunchPriceLabel}.
               </p>
             </Reveal>
 
-            <Reveal immediate delay={320}>
-              <div className="mt-8 flex max-w-full flex-wrap gap-2.5 sm:gap-3">
-                <a href={deliveryHref} {...externalLinkProps} className="btn-primary">
-                  Liefern lassen
-                </a>
-                <a href={collectionHref} {...externalLinkProps} className="btn-primary">
-                  Zur Abholung bestellen
-                </a>
-              </div>
+            <Reveal immediate delay={300}>
+              <a
+                href={siteConfig.phoneHref}
+                className="mt-6 inline-flex items-center gap-2 font-display text-[clamp(1.75rem,4vw,2.5rem)] tracking-wide text-saigon-green hover:text-saigon-green-light"
+              >
+                {siteConfig.phone}
+              </a>
             </Reveal>
 
-            <Reveal immediate delay={420}>
-              <div className="mt-4 flex max-w-full flex-wrap gap-2.5 sm:gap-3">
+            <Reveal immediate delay={380}>
+              <div className="mt-6 flex max-w-full flex-wrap gap-2.5 sm:gap-3">
+                <a href={siteConfig.phoneHref} className="btn-primary">
+                  Jetzt telefonisch bestellen
+                </a>
                 <Link href="#speisekarte" className="btn-secondary">
                   Speisekarte ansehen
                 </Link>
-                <a href={siteConfig.phoneHref} className="btn-secondary">
-                  Anrufen
+              </div>
+            </Reveal>
+
+            <Reveal immediate delay={460}>
+              <div className="mt-4 flex max-w-full flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                <a
+                  href={deliveryHref}
+                  {...externalLinkProps}
+                  className="text-muted underline-offset-4 hover:text-saigon-green hover:underline"
+                >
+                  Alternativ über Lieferando bestellen
+                </a>
+                <a
+                  href={collectionHref}
+                  {...externalLinkProps}
+                  className="text-muted underline-offset-4 hover:text-saigon-green hover:underline"
+                >
+                  Lieferando-Abholung
                 </a>
                 <a
                   href={siteConfig.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary"
+                  className="text-muted underline-offset-4 hover:text-saigon-green hover:underline"
                 >
                   Route öffnen
                 </a>

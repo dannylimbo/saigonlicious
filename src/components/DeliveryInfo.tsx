@@ -1,4 +1,4 @@
-import { deliveryHours } from "@/lib/site-data";
+import { deliveryHours, siteConfig } from "@/lib/site-data";
 import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
 import { BrushLabel, SectionHeading } from "@/components/ui/BrushLabel";
 import { Reveal } from "@/components/ui/Reveal";
@@ -12,13 +12,12 @@ const steps = [
   },
   {
     step: "2",
-    title: "Lieferung oder Abholung wählen",
-    description:
-      "Bestelle bequem über Lieferando – entweder zur Lieferung oder zur Abholung.",
+    title: "Direkt anrufen und bestellen",
+    description: `Ruf uns unter ${siteConfig.phone} an – wir nehmen deine Bestellung entgegen.`,
   },
   {
     step: "3",
-    title: "Genießen",
+    title: "Essen genießen",
     description: "Frisch zubereitet und bereit für dich.",
   },
 ] as const;
@@ -45,7 +44,7 @@ export function DeliveryInfo() {
             accent
             brushStroke
             title="So bestellst du bei uns"
-            subtitle="In drei einfachen Schritten zu deinem Lieblingsgericht."
+            subtitle="Gericht aussuchen → Direkt anrufen und bestellen → Essen genießen."
           />
         </Reveal>
 
@@ -87,11 +86,14 @@ export function DeliveryInfo() {
 
         <Reveal delay={140}>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={deliveryHref} {...externalLinkProps} className="btn-primary">
-              Lieferung starten
+            <a href={siteConfig.phoneHref} className="btn-primary">
+              Jetzt telefonisch bestellen
             </a>
-            <a href={collectionHref} {...externalLinkProps} className="btn-primary">
-              Abholung starten
+            <a href={deliveryHref} {...externalLinkProps} className="btn-secondary">
+              Alternativ Lieferando – Lieferung
+            </a>
+            <a href={collectionHref} {...externalLinkProps} className="btn-secondary">
+              Alternativ Lieferando – Abholung
             </a>
           </div>
         </Reveal>

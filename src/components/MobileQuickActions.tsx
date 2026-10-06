@@ -1,32 +1,49 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-data";
-import { collectionHref, deliveryHref, externalLinkProps } from "@/lib/utils";
+import { deliveryHref, externalLinkProps } from "@/lib/utils";
 
 const actions = [
-  { label: "Anrufen", href: siteConfig.phoneHref, icon: "phone" },
-  { label: "Liefern", href: deliveryHref, icon: "delivery", external: true },
-  { label: "Abholen", href: collectionHref, icon: "cart", external: true },
-  { label: "Menü", href: "#speisekarte", icon: "menu" },
+  {
+    label: "Anrufen & bestellen",
+    href: siteConfig.phoneHref,
+    icon: "phone",
+    primary: true,
+  },
+  { label: "Speisekarte", href: "#speisekarte", icon: "menu" },
+  {
+    label: "Lieferando",
+    href: deliveryHref,
+    icon: "delivery",
+    external: true,
+  },
 ] as const;
 
 export function MobileQuickActions() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-[var(--z-mobile-bar)] border-t border-white/10 bg-charcoal/95 backdrop-blur-md sm:hidden"
+      className="fixed inset-x-0 bottom-0 z-[var(--z-mobile-bar)] border-t border-white/10 bg-charcoal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md sm:hidden"
       aria-label="Mobile Schnellaktionen"
     >
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-3">
         {actions.map((action) => {
           const inner = (
             <>
               <ActionIcon type={action.icon} />
-              <span className="text-[10px] font-medium">{action.label}</span>
+              <span className="max-w-[5.5rem] text-center text-[10px] font-medium leading-tight">
+                {action.label}
+              </span>
             </>
           );
           const className =
-            "flex flex-col items-center gap-1 py-2.5 text-saigon-green transition-colors active:bg-white/5";
+            "primary" in action && action.primary
+              ? "flex min-h-[3.5rem] flex-col items-center justify-center gap-1 bg-saigon-green/15 py-2.5 text-saigon-green"
+              : "flex min-h-[3.5rem] flex-col items-center justify-center gap-1 py-2.5 text-white/80 active:bg-white/5";
 
           if ("external" in action && action.external) {
             return (
@@ -76,14 +93,6 @@ function ActionIcon({ type }: { type: string }) {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10m10 0h4m-4 0a2 2 0 01-2 2H5a2 2 0 01-2-2m10 0V9a2 2 0 012-2h2.5M13 16h4m0 0v2a1 1 0 01-1 1h-1m-4-3h4"
-      />
-    ),
-    cart: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
       />
     ),
     menu: (
