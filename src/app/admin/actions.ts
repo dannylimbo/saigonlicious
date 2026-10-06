@@ -81,7 +81,7 @@ export async function loginAction(
       return {
         ok: false,
         message:
-          "Die Verwaltung ist noch nicht freigeschaltet. Bitte zuerst die Einrichtung mit ALLOW_ADMIN_BOOTSTRAP abschließen.",
+          "Die Verwaltung ist noch nicht freigeschaltet. Bitte die Ersteinrichtung über die sichere Vercel-Konfiguration abschließen (siehe ENV.md).",
       };
     }
     if (password === SETUP_BOOTSTRAP_PASSWORD) {
